@@ -38,13 +38,22 @@ FEEDS = {
     "TechCrunch": "https://techcrunch.com/category/venture/feed/",
     "VentureBeat": "https://venturebeat.com/category/venture/feed/",
     "Crunchbase News": "https://news.crunchbase.com/feed/",
-    "Startup Insider": "https://feeds.feedburner.com/venturebeat/SZYF",
+    "Forbes": "https://www.forbes.com/business/feed/",
+    "Business Insider": "https://www.businessinsider.com/rss",
+    "Fortune": "https://fortune.com/feed/",
+    "Axios": "https://api.axios.com/feed/",
+    "Inc42 (India)": "https://inc42.com/feed/",
+    "YourStory (India)": "https://yourstory.com/feed",
+    "Entrackr (India)": "https://entrackr.com/feed",
+    "Economic Times Startups": "https://economictimes.indiatimes.com/tech/startups/rssfeeds/13358288.cms",
+    "TechInAsia": "https://www.techinasia.com/feed",
 }
 
 # Keywords that signal an actual funding announcement
 FUNDING_KEYWORDS = re.compile(
-    r"\b(raises?|raised|funding|seed round|series [a-e]\b|closes.*round|"
-    r"secures.*(million|funding))\b",
+    r"\b(raises?|raised|funding|fundraise|seed round|pre-seed|series [a-e]\b|"
+    r"closes.*round|secures.*(million|funding|crore)|"
+    r"valued at|investment (round|of)|backed by|led by \w+ (capital|ventures|partners))\b",
     re.IGNORECASE,
 )
 
@@ -55,7 +64,7 @@ HIRING_SIGNAL = re.compile(
     re.IGNORECASE,
 )
 
-LOOKBACK_HOURS = 26  # slight overlap so nothing slips through if a run is late
+LOOKBACK_HOURS = 48  # widened so a slow news day doesn't come up empty
 
 # --- Best-effort extraction patterns ---
 # News headlines are inconsistent, so these are "best guess" patterns, not
